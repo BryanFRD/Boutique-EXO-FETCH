@@ -25,7 +25,7 @@ function init() {
       let template = categoryDiv.querySelector(".template").cloneNode(true);
       template.hidden = false;
       template.classList.remove("template");
-    
+      
       let templateA = template.querySelector("a");
       templateA.href += category.id;
       

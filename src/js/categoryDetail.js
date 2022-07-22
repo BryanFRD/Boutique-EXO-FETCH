@@ -1,11 +1,13 @@
 import { DataManager } from "../helpers/DataManager.helper";
 
-const params = new URLSearchParams(document.location.search);
-const shownCategory = params.get("categoryId");
-
 const dataManager = new DataManager();
 let categories = dataManager.getAll('category');
 let products = dataManager.getAll('product');
+
+const params = new URLSearchParams(document.location.search);
+const shownCategory = dataManager.getOne('category', params.get("categoryId"));
+
+document.title = shownCategory.title;
 
 init();
 
@@ -22,13 +24,9 @@ function init() {
     navBarLink.appendChild(template);
   }
   
-  title.innerText = dataManager.getOne('category', shownCategory).title;
+  title.innerText = shownCategory.title;
   
-  for(const product of products){
-    if(product.category_id != shownCategory){
-      continue;
-    }
-    
+  for(const product of shownCategory.getProducts()){
     let template = productDiv.querySelector(".template").cloneNode(true);
     template.hidden = false;
     template.classList.remove("template");

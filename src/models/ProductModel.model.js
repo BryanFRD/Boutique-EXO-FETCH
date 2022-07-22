@@ -1,4 +1,3 @@
-import { DataManager } from "../helpers/DataManager.helper.js";
 import { Model } from "./Model.model.js";
 
 export class Product extends Model {
@@ -11,19 +10,13 @@ export class Product extends Model {
   category_id = '';
   
   constructor(props){
-    super(props);
+    super();
     
-    for(const item in props){
-      if(!this.hasOwnProperty(item)){
-        delete props[item];
-      }
-    }
-    
-    Object.assign(this, props);
+    this.assign(props);
   }
   
   getCategory(){
-    return new DataManager().getOne('category', this.category_id);
+    return this.dataManager.getOne('category', this.category_id);
   }
   
 }
