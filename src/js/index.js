@@ -4,11 +4,10 @@ const dataManager = new DataManager(['category', 'product']);
 dataManager.initDataStorage();
 
 let categories = dataManager.getAll('category');
-let products = dataManager.getAll('product');
 
-generateNavBarLink();
+init();
 
-function generateNavBarLink() {
+function init() {
   for(const category of categories){
     {
       let template = navBarLink.querySelector(".template").cloneNode(true);
