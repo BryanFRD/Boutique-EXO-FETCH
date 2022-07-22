@@ -13,11 +13,12 @@ export class DataManager {
   
   initDataStorage = async () => {
     let data = {};
+    
     for(const file of this.files){
       data[file + 'Data'] = await this.readJsonFile(file);
     }
-    localStorage.setItem('data', JSON.stringify(data));
     
+    localStorage.setItem('data', JSON.stringify(data));
   }
   
   readJsonFile = async (file) => {
