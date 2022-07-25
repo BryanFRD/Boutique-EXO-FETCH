@@ -61,4 +61,15 @@ export class DataManager {
     }
   }
   
+  update = (table, model) => {
+    const data = JSON.parse(localStorage.getItem('data'));
+    let row = data[table + 'Data']?.find(item => item.id == model.id);
+    
+    for(const key in row){
+      row[key] = model[key];
+    }
+    
+    localStorage.setItem('data', JSON.stringify(data));
+  }
+  
 }

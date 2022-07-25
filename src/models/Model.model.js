@@ -16,4 +16,8 @@ export class Model {
     Object.assign(this, props);
   }
   
+  setProp(key, value){
+    this[key] = value;
+  }
+  
 }

@@ -1,9 +1,19 @@
 import { DataManager } from "../helpers/DataManager.helper.js";
 
 const dataManager = new DataManager(['category', 'product']);
-dataManager.initDataStorage();
+//dataManager.initDataStorage();
 
 let categories = dataManager.getAll('category');
+
+let test = dataManager.getOne('category', 1);
+
+console.log(test.title);
+
+test.setProp('title', 'nouveau titre');
+
+dataManager.update('category', test);
+
+console.log(test.title);
 
 init();
 
