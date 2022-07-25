@@ -11,7 +11,7 @@ console.log(test.title);
 
 test.setProp('title', 'nouveau titre');
 
-dataManager.update('category', test);
+dataManager.update(test);
 
 console.log(test.title);
 

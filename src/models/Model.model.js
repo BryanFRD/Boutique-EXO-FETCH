@@ -17,6 +17,10 @@ export class Model {
   }
   
   setProp(key, value){
+    if(key == 'id'){
+      return;
+    }
+    
     this[key] = value;
   }
   

@@ -61,7 +61,8 @@ export class DataManager {
     }
   }
   
-  update = (table, model) => {
+  update = (model) => {
+    const table = model.constructor.name.toLowerCase();
     const data = JSON.parse(localStorage.getItem('data'));
     let row = data[table + 'Data']?.find(item => item.id == model.id);
     
